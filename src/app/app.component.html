@@ -1,6 +1,24 @@
-<app-profile></app-profile>
-<app-form></app-form>
-<app-book-list></app-book-list>
-<app-book-item></app-book-item>
-<app-blog-list></app-blog-list>
-<app-blog-item></app-blog-item>
+<h1>Angular Exercise 2</h1>
+<table>
+  <tr>
+    <th>Book</th>
+    <th>Blog</th>
+    <th>User</th>
+  </tr>
+  <tr>
+    <td>
+        <button class="button button1" routerLink="book-item">Book items</button>
+        <button class="button button1" routerLink="book-list">Book list</button>
+
+    </td>
+    <td>
+        <button class="button button1" routerLink="blog-item">Blog items</button>
+        <button class="button button1" routerLink="blog-list">Blog list</button>
+    </td>
+    <td>
+        <button routerLink="profile" class="button button1">Profile</button>
+    </td>
+  </tr>
+  </table>
+
+<router-outlet></router-outlet>

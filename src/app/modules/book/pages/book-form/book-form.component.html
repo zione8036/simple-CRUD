@@ -1,0 +1,32 @@
+<h1>Add a book</h1>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+      
+    <div class="col-md-4">
+        <label for="name">Name</label>
+      <input type="text" class="form-control" placeholder="Name" formControlName="bookName">
+    </div>
+    
+    <div class="col-md-4">
+        <label for="isbn"> International Standard Book Number (ISBN) </label>
+      <input type="text" class="form-control" placeholder=" International Standard Book Number (ISBN)" formControlName="bookISBN">
+    </div>
+    <div class="col-md-4" formArrayName="bookAuthor">
+        <label for="bookAuthor">Author</label>
+        <div class="input-group mb-5" *ngFor="let _ of formArray.controls; index as i ;">
+            <input type="text" class="form-control" placeholder="Author" [formControlName]="i">
+            <button class="btn btn-outline-danger" (click)="deleteEntry(i)">Delete</button>
+        </div>
+        <button class="btn btn-outline-success" (click)="addAuthor()">Add Author</button>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Submit" class="btn btn-outline-success ">
+      </div>
+  </div>
+
+</form>

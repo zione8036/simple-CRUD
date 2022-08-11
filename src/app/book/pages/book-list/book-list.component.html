@@ -1,6 +1,22 @@
 <div class="">
-    <h2>Book List</h2>
-    <ul *ngFor="let book of books">
-      <li>{{book.name}}</li>
-    </ul>
+ 
+    
+    
+
+
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Book List</h2>
+        
+        <ul *ngFor="let book of books">
+              <li>{{book.name}}</li>
+              <hr>
+            </ul>
+      </div>
+      
+      <div class="col-md-4">
+          <app-command-bar></app-command-bar>
+      </div>
+    </div>
+    
 </div>

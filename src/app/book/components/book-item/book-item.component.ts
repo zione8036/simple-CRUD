@@ -8,11 +8,11 @@ import { BookService } from '../../services/book.service';
   styleUrls: ['./book-item.component.scss']
 })
 export class BookItemComponent implements OnInit {
-books!:Book[];
+    books!:Book[];
 
-  constructor(private _bookService: BookService) { }
+      constructor(private _bookService: BookService) { }
 
-  ngOnInit(){
-    this.books= this._bookService.getBookDetails();
-  }
+      ngOnInit(){
+        this.books= this._bookService.getBookDetails();
+      }
 }

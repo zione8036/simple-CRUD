@@ -35,4 +35,8 @@ export class BlogService {
   getBlogDetails(){
     return this.getDetails;
   }
+
+  getDetail(){
+    return this.getDetails[0];
+  }
 }

@@ -1,9 +1,14 @@
-<h2>Book-item</h2>
 
-<div class="container">
   <div class="row">
-    <div class="col md-10">
-      <table>
+    <div class="col-md-10">
+      <h2>Book-item</h2>
+    </div>
+    <div class="col md-2">
+      <app-command-bar></app-command-bar>
+    </div>
+    <div class="col-md-12">
+
+      <table class="table">
         <tr>
           <th width="5%">ID</th>
           <th width="35%">Name</th>
@@ -11,18 +16,19 @@
           <th width="15%">ISBN</th>
           <th width="12%">Action</th>
         </tr>
-        <tr *ngFor="let book of books">
-          <td>{{book.id}}</td>
-          <td>{{book.name}}</td>
-          <td>{{book.author}}</td>
-          <td>{{book.isbn}}</td>
+        <tr *ngFor="let data of books">
+          <td>{{data.id}}</td>
+          <td>{{data.name}}</td>
+          <td>{{data.author}}</td>
+          <td>{{data.isbn}}</td>
           <td>
-              <button class="button button1"><i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i> Edit</button>
+              <button routerLink="/book/form/edit/1" class="button button1"><i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i> Edit</button>
               <button class="danger button2"><i class="fa fa-trash-o fa-2" aria-hidden="true"></i> Delete</button>
           </td>
         </tr>
         
       </table>
     </div>
+    
   </div>
-</div>
+

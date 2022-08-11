@@ -1,7 +1,16 @@
-<h1>
-    Blog Item
-</h1>
-<div class="container">
+<div class="row">
+    <div class="col-md-10">
+        <h1>
+            Blog Item
+        </h1>
+    </div>
+    <div class="col-md-2">
+        <app-blog></app-blog>
+    </div>
+</div>
+
+
+
     <div class="row">
         <div class="col md-10">
             <table>
@@ -20,11 +29,10 @@
                 <td>{{data.author}}</td>
                 <td>{{data.comments}}</td>
                 <td>
-                    <button  class="buttonCSS button1"><i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i> Edit</button>
+                    <button  class="buttonCSS button1" routerLink="/blog/form/edit/1"><i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i> Edit</button>
                     <button  class="danger button2"><i class="fa fa-trash-o fa-2" aria-hidden="true"></i> Delete</button>
                 </td>
             </tr>
         </table>
         </div>
     </div>
-</div>

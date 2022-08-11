@@ -1,0 +1,32 @@
+<h1>Edit Blog ID: 1</h1>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+      
+    <div class="col-md-6">
+        <label for="name">Title</label>
+      <input type="text" class="form-control" placeholder="Title" formControlName="title">
+    </div>
+    
+    <div class="col-md-6">
+        <label for="isbn"> Description</label>
+      <input type="text" class="form-control" placeholder="Description" formControlName="description">
+    </div>
+    
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-md-6">
+        <label for="isbn"> Author</label>
+      <input type="text" class="form-control" placeholder="Description" formControlName="author">
+      </div>
+  </div>
+  <br>
+
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Submit" class="btn btn-outline-success ">
+      </div>
+  </div>
+
+</form>

@@ -1,0 +1,42 @@
+<h1>Add a blog</h1>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+      
+    <div class="col-md-6">
+        <label for="name">Title</label>
+      <input type="text" class="form-control" placeholder="Title" formControlName="title">
+    </div>
+    
+    <div class="col-md-6">
+        <label for="isbn"> Description</label>
+      <input type="text" class="form-control" placeholder="Description" formControlName="description">
+    </div>
+    
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-md-6">
+        <label for="isbn"> Author</label>
+      <input type="text" class="form-control" placeholder="Description" formControlName="author">
+      </div>
+      
+          <div class="col-md-6" formArrayName="comment">
+        <label for="comment">Comment</label>
+        <div class="input-group mb-5" *ngFor="let _ of formArray.controls; index as i ;">
+            <input type="text" class="form-control" placeholder="Comment" [formControlName]="i">
+            <button class="btn btn-outline-danger" (click)="deleteEntry(i)">Delete</button>
+        </div>
+        <button class="btn btn-outline-success" (click)="addComment()">Add Comment</button>
+   
+      </div>
+  </div>
+  <br>
+
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Submit" class="btn btn-outline-success ">
+      </div>
+  </div>
+
+</form>

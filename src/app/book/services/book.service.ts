@@ -1,21 +1,54 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, tap, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Book } from '../models/book';
-
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  constructor() { }
-  getDetails: Book[] = [{"id":1, "name":"Pride and Prejudice", "author":["Jane Austen"], "isbn":"9780141439518"},
-   {"id":2, "name":"To Kill a Mockingbird", "author":["Harper Lee"], "isbn":"9780446310789"},
-   {"id":3, "name":"One Hundred Years of Solitude", "author":["Gabriel García Márquez"], "isbn":"9780241968581"}];
+private _reload$ = new Subject<void>();
+  constructor(private http: HttpClient) { }
+  get reloadPage$(){
+  return this._reload$;
+}
 
-  getBookDetails(){
-    return this.getDetails;
+  postBookDetails(data: any){
+    return this.http.post<any>(`${environment.url}/Book`, data).pipe(
+      map((a =>{
+        return a;
+      })));
   }
-  getDetail(){
-    return this.getDetails[0];
+  getBookDetails(){
+    return this.http.get<any>(`${environment.url}/Book`).pipe(
+      map((a =>{
+        return a;
+      })));
+     
+  }
+ putBookDetails(data: any, id: number){
+    return this.http.put<any>(`${environment.url}/Book/${id}`, data).pipe(
+      map((a:any) =>{
+        return a; 
+      }));
+  }
+  deleteBookDetails(id: number){
+    return this.http.delete<any>(`${environment.url}/Book/`+id).pipe(
+      map((a =>{
+        return a;
+      })));
+  }
+  deleteBookAll(index: number){
+
+      return this.http.delete<any>(`${environment.url}/Book/`+index).pipe(
+      map((a =>{
+        this.reloadPage$.next();
+        return a;
+      }
+      
+      )));
   }
 }

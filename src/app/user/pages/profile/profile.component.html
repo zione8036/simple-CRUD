@@ -1,65 +1,27 @@
-<!-- <h1>Profile</h1>
-<div>
-  <form action="/action_page.php">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Your email">
 
-    <label for="lname">Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your name..">
-
-    <label for="bio">Bio</label>
-    <input type="text" id="bio" name="bio" placeholder="Your bio">
-    
-
-  
-    <input type="submit" value="Submit">
-  </form>
-</div> -->
-
-
-
-<h1>Add a user</h1>
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-
-  <div class="row">
-      
-    <div class="col-md-6">
-        <label for="email">Email</label>
-      <input type="email" class="form-control" placeholder="Email" formControlName="email">
-    </div>
-    
-    <div class="col-md-6">
-        <label for="Name"> Name</label>
-      <input type="text" class="form-control" placeholder="Name" formControlName="name">
-    </div>
-    
-  </div>
-  <br>
-  <div class="row">
-      <div class="col-md-6">
-        <label for="isbn">Bio</label>
-      <input type="text" class="form-control" placeholder="bio" formControlName="bio">
-      </div>
-      <div class="col-md-6">
-        <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Status
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+<div class="wrapper">
+        
+        <div class="text-center mt-4 name">
+            Register
         </div>
-      </div>
-      </div>
-         
-  </div>
-  <br>
-
-  <div class="row">
-      <div class="col-md-4">
-          <input type="submit" value="Submit" class="btn btn-outline-success ">
-      </div>
-  </div>
-
-</form>
+        <form class="p-3 mt-3"[formGroup]="formGroup" (submit)="onSubmit()">
+            <label>Email address</label>
+            <div class="form-field d-flex align-items-center">
+                <input formControlName="email" type="email" class="form-control" placeholder="name@example.com">
+            </div>
+            <label>Name</label>
+            <div class="form-field d-flex align-items-center">
+                <input formControlName="name" type="text" class="form-control" placeholder="name@example.com">
+            </div>
+            <label>Bio</label>
+            <div class="form-field d-flex align-items-center">
+                <input formControlName="bio" type="text" class="form-control" placeholder="name@example.com">
+            </div>
+             <label>Password</label>
+            <div class="form-field d-flex align-items-center">
+                 <input formControlName="password" type="password" class="form-control" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-success">Register</button>
+        </form>
+        
+    </div>

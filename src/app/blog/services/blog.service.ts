@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, Subject, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Blog } from '../models/blog';
 
 
@@ -7,36 +10,46 @@ import { Blog } from '../models/blog';
 })
 export class BlogService {
 
-  constructor() { }
-  getDetails:Blog[] = [
-    {
-      id: 1,
-      title:"Plan A Romantic Getaway",
-      description:"The sexy vacation",
-      author:"TravelMiso",
-      comments:["Relationships","Romatic"],
-    },
-    {
-      id: 2,
-      title:"New York City, USA: Travel Guide",
-      description:"Top attractions in the Big Apple!",
-      author:"TravelMiso",
-      comments:["USA","Big city"],
-    },
-    {
-      id: 3,
-      title:"Surviving A Long Flight",
-      description:"Get the tips on how to make the plane trip a little easier.",
-      author:"TravelMiso",
-      comments:["Plans","Flights"],
-    },
-  ];
-
+private _reload$ = new Subject<void>();
+  constructor(private http: HttpClient) { }
+  
+get reloadPage$(){
+  return this._reload$;
+}
+  postBlogDetails(data: any){
+    return this.http.post<any>(`${environment.url}/Blog`, data).pipe(
+      map((a =>{
+        return a;
+      })));
+  }
   getBlogDetails(){
-    return this.getDetails;
+    return this.http.get<any>(`${environment.url}/Blog`).pipe(
+      map((a =>{
+        return a;
+      })));
+     
   }
+  putBlogDetails(data: any, id: number){
+    return this.http.put<any>(`${environment.url}/Blog/${id}`, data).pipe(
+      map((a:any) =>{
+        return a; 
+      }));
+  }
+  deleteBlogDetails(id: number){
+    return this.http.delete<any>(`${environment.url}/Blog/`+id).pipe(
+      map((a =>{
+        return a;
+      })));
+  }
+  deleteBlogAll(index: number){
 
-  getDetail(){
-    return this.getDetails[0];
+      return this.http.delete<any>(`${environment.url}/Blog/`+index).pipe(
+      map((a =>{
+        this.reloadPage$.next();
+        return a;
+      }
+      
+      )));
   }
+  
 }

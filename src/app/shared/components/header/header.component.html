@@ -1,6 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<div *ngIf="compLogin" class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a routerLink="/" class="nav-link px-2 text-white">Angular Exercise</a></li>
+      </ul>
+
+      <div class="text-end">
+        <a routerLink="login" class="btn btn-outline-light me-2">Login</a>
+        <a routerLink="register" class="btn btn-outline-light me-2">Register</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<nav *ngIf="compAuthorize" class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Angular Exercise 2</a>
+      <a class="navbar-brand" href="#">Angular Exercise 3 </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,4 +34,5 @@
       </div>
               
     </div>
+    {{message}}
   </nav>  

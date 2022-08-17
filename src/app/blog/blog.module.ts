@@ -7,14 +7,14 @@ import {BlogService} from './services/blog.service';
 import { BlogFormComponent } from '../modules/blog/pages/blog-form/blog-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlogComponent } from '../shared/components/command-bar/blog/blog.component';
-import { EditComponent } from './components/forms/edit/edit.component';
+
 @NgModule({
   declarations: [
     BlogListComponent,
     BlogItemComponent,
     BlogFormComponent,
     BlogComponent,
-    EditComponent
+
   ],
   imports: [
     CommonModule,

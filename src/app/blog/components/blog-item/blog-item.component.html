@@ -22,17 +22,97 @@
                 <th width="5px">comments</th>
                 <th width="10px">Action</th>
             </tr>
-            <tr *ngFor="let data of blogs">
+            <tr *ngFor="let data of blogList">
                 <td>{{data.id}}</td>
                 <td>{{data.title}}</td>
                 <td>{{data.description}}</td>
                 <td>{{data.author}}</td>
                 <td>{{data.comments}}</td>
                 <td>
-                    <button  class="buttonCSS button1" routerLink="/blog/form/edit/1"><i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i> Edit</button>
-                    <button  class="danger button2"><i class="fa fa-trash-o fa-2" aria-hidden="true"></i> Delete</button>
+                    <button  class="buttonCSS button1" (click)="editBlogDetails(data)" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa fa-pencil-square-o fa-2" aria-hidden="true"></i> Edit</button>
+                    <button  class="danger button2"(click)="deleteBlogDetails(data)"><i class="fa fa-trash-o fa-2" aria-hidden="true"></i> Delete</button>
                 </td>
             </tr>
         </table>
         </div>
     </div>
+
+
+
+    
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <b><h3 class="modal-title" *ngIf="btnSaveShow" id="staticBackdropLabel">Add a blog</h3></b> 
+        <b><h3 class="modal-title" *ngIf="btnUpdateShow" id="staticBackdropLabel">Edit a blog</h3></b>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+              <form  [formGroup]="formGroup">
+
+          <div class="row">
+              
+            <div>
+                <label for="title">Title</label>
+              <input type="text" class="form-control" placeholder="Title" formControlName="blogTitle">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div>
+                <label for="description">Description</label>
+              <input type="text" class="form-control" placeholder="Description" formControlName="blogDescription">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div>
+                <label for="author">Author</label>
+              <input type="text" class="form-control" placeholder="Author" formControlName="blogAuthor">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div formArrayName="blogComment">
+                <label for="bookAuthor">Comment</label>
+                <div class="input-group mb-5" *ngFor="let _ of formArray.controls; index as i ;">
+                    <input type="text" class="form-control" placeholder="Comment" [formControlName]="i">
+                    <button class="btn btn-outline-danger" (click)="deleteEntry(i)">Delete</button>
+                </div>
+                <button class="btn btn-outline-success" (click)="addComment()">Add Author</button>
+                
+            </div>
+          </div>
+          <br>
+          <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                <button type="submit" *ngIf="btnSaveShow" value="Submit" class="btn btn-outline-primary" (click)="addBlog()">Submit</button>
+                <button type="submit" *ngIf="btnUpdateShow" value="Submit" class="btn btn-outline-primary" (click)="updateBlog()">Update</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!--Delete all Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" #modalClose class="btn-close" data-bs-keyboard="false" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="modal-title" id="exampleModalLabel">Are you sure you want to delete all?</h1>
+      </div>
+      <div class="modal-footer" >
+        <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-danger"  (click)="deleteAll()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

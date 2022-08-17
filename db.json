@@ -1,0 +1,25 @@
+{
+  "Book": [],
+  "Blog": [],
+  "User": [
+    {
+      "password": "123",
+      "email": "1@gmail.com",
+      "name": "1",
+      "bio": "a",
+      "id": 1
+    },
+    {
+      "password": "123",
+      "email": "a@a.com",
+      "name": "a",
+      "bio": "a",
+      "id": 2
+    },
+    {
+      "email": "a@a.com",
+      "password": "123",
+      "id": 3
+    }
+  ]
+}

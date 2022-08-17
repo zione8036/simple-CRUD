@@ -5,6 +5,8 @@ import { FormComponent } from './components/form/form.component';
 import {UserRoutingModule} from './user-routing.module'
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './user.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from '../core/interceptor/header.interceptor';
 @NgModule({
   declarations: [
     ProfileComponent,
@@ -13,9 +15,14 @@ import { UserService } from './user.service';
   imports: [
     CommonModule,
     UserRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers:[UserService],
+  providers:[UserService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HeaderInterceptor,
+    multi:true
+  }],
   exports:[
     ProfileComponent,
     FormComponent

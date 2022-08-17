@@ -8,13 +8,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Angular Materials
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BookModule,
     BlogModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    NgbModule,
+    
   ],
   exports:[],
   providers: [],

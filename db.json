@@ -1,25 +1,53 @@
 {
-  "Book": [],
-  "Blog": [],
-  "User": [
+  "Book": [
     {
-      "password": "123",
-      "email": "1@gmail.com",
-      "name": "1",
-      "bio": "a",
-      "id": 1
+      "id": 1,
+      "name": "Super Tokyoland",
+      "isbn": "9781603094184 ",
+      "author": [
+        "Benjamin Reiss"
+      ]
     },
     {
-      "password": "123",
-      "email": "a@a.com",
-      "name": "a",
-      "bio": "a",
-      "id": 2
+      "id": 2,
+      "name": "The Fun Family",
+      "isbn": "9781603093446",
+      "author": [
+        "Benjamin Frisch"
+      ]
     },
     {
-      "email": "a@a.com",
-      "password": "123",
-      "id": 3
+      "id": 3,
+      "name": "Surfside Girls: the Secret of Danger Point",
+      "isbn": "978-1-60309-411-5",
+      "author": [
+        "Kim Dwinell"
+      ]
     }
+  ],
+  "Blog": [
+    {
+      "id": 1,
+      "title": "Plan A Romantic Getaway",
+      "description": "The sexy vacation your relationship deserves ",
+      "author": "Travel Miso",
+      "comments": [
+        "Romantic",
+        "Couple"
+      ]
+    },
+    {
+      "id": 2,
+      "title": " FEATURE New York City, USA: Travel Guide",
+      "description": "Top attractions in the Big Apple!",
+      "author": "TravelMiso",
+      "comments": [
+        "Travel",
+        "Guide"
+      ]
+    }
+  ],
+  "User": [
+    {}
   ]
 }

@@ -17,33 +17,33 @@ private _reload$ = new Subject<void>();
 }
 
   postBookDetails(data: any){
-    return this.http.post<any>(`${environment.url}/Book`, data).pipe(
+    return this.http.post<any>(`${environment.url}/books`, data).pipe(
       map((a =>{
         return a;
       })));
   }
   getBookDetails(){
-    return this.http.get<any>(`${environment.url}/Book`).pipe(
+    return this.http.get<any>(`${environment.url}/books`).pipe(
       map((a =>{
         return a;
       })));
      
   }
  putBookDetails(data: any, id: number){
-    return this.http.put<any>(`${environment.url}/Book/${id}`, data).pipe(
+    return this.http.put<any>(`${environment.url}/books/${id}`, data).pipe(
       map((a:any) =>{
         return a; 
       }));
   }
   deleteBookDetails(id: number){
-    return this.http.delete<any>(`${environment.url}/Book/`+id).pipe(
+    return this.http.delete<any>(`${environment.url}/books/`+id).pipe(
       map((a =>{
         return a;
       })));
   }
   deleteBookAll(index: number){
 
-      return this.http.delete<any>(`${environment.url}/Book/`+index).pipe(
+      return this.http.delete<any>(`${environment.url}/books/`+index).pipe(
       map((a =>{
         this.reloadPage$.next();
         return a;

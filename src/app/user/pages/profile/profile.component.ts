@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 onSubmit(){
-  this.http.post(`${environment.url}/User`, this.formGroup.getRawValue()).subscribe(()=>{
+  this.http.post(`${environment.url}/users`, this.formGroup.getRawValue()).subscribe(()=>{
     this.router.navigate(['login']);
   })
 }

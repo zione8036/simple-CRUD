@@ -23,7 +23,7 @@ compAuthorize:boolean=false;
 
   ngOnInit(){
     this.navName=this._navNameService.getNavName();
-    this.http.get(`http://localhost:3000/User`).subscribe(
+    this.http.get(`${environment.url}/users`).subscribe(
     (a:any)=>{
         this.message=`Hi ${a.name}`;
     }

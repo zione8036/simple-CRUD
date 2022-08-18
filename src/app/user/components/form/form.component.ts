@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
     });
   }
 onSubmit(){
-  this.http.post(`http://localhost:3000/User`, this.formGroup.getRawValue(), {withCredentials:true}).subscribe((a:any)=>{
+  this.http.post(`${environment.url}/users`, this.formGroup.getRawValue(), {withCredentials:true}).subscribe((a:any)=>{
     HeaderInterceptor.accessToken = a.token;
     this.router.navigate(['/']);
   })

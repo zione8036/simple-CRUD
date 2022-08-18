@@ -17,33 +17,33 @@ get reloadPage$(){
   return this._reload$;
 }
   postBlogDetails(data: any){
-    return this.http.post<any>(`${environment.url}/Blog`, data).pipe(
+    return this.http.post<any>(`${environment.url}/blogs`, data).pipe(
       map((a =>{
         return a;
       })));
   }
   getBlogDetails(){
-    return this.http.get<any>(`${environment.url}/Blog`).pipe(
+    return this.http.get<any>(`${environment.url}/blogs`).pipe(
       map((a =>{
         return a;
       })));
      
   }
   putBlogDetails(data: any, id: number){
-    return this.http.put<any>(`${environment.url}/Blog/${id}`, data).pipe(
+    return this.http.put<any>(`${environment.url}/blogs/${id}`, data).pipe(
       map((a:any) =>{
         return a; 
       }));
   }
   deleteBlogDetails(id: number){
-    return this.http.delete<any>(`${environment.url}/Blog/`+id).pipe(
+    return this.http.delete<any>(`${environment.url}/blogs/`+id).pipe(
       map((a =>{
         return a;
       })));
   }
   deleteBlogAll(index: number){
 
-      return this.http.delete<any>(`${environment.url}/Blog/`+index).pipe(
+      return this.http.delete<any>(`${environment.url}/blogs/`+index).pipe(
       map((a =>{
         this.reloadPage$.next();
         return a;
